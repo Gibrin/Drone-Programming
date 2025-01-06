@@ -1,0 +1,132 @@
+Пример выполнения задания
+
+Шаг 1. Установка Docker и Docker Compose
+
+Нашел более простой вариант установки Docker из репозитория Ubuntu.
+
+Установим Docker:
+  sudo apt update
+  sudo apt install docker.io
+  
+Установим Docker Compose:
+  sudo apt install docker-compose
+  
+Добавим текущего пользователя в группу Docker без прав суперпользователя:
+  sudo usermod -aG docker $USER
+  newgrp docker
+
+Проверим установку:
+  docker --version
+  docker-compose --version
+  
+Результат:
+max@max-Vivobook-ASUSLaptop-M6500QC-M6500QC:~$ docker --version
+Docker version 24.0.7, build 24.0.7-0ubuntu2~20.04.1
+max@max-Vivobook-ASUSLaptop-M6500QC-M6500QC:~$ docker-compose --version
+docker-compose version 1.25.0, build unknown
+
+Шаг 2. Создаем репозиторий
+
+Создал папку для проекта под именем Linux5_DockerStart внутри репозитория на GitHub - Drone-Programming. 
+
+Шаг 3. Разработка простой программы
+
+Создал файл docker_ini.py на языке Python, который выводит сообщение "Привет, это контейнер с Docker!" и текущее время:
+
+  import datetime
+
+  def main():
+      print("Привет, это контейнер с Docker!")
+      print("Текущее время:", datetime.datetime.now())
+
+  if __name__ == "__main__":
+      main()
+
+Шаг 4. Перенес папку в терминал
+
+Клонировал эту папку на локальную машину:
+  git clone https://github.com/Gibrin/Drone-Programming/tree/main/Linux5_DockerStart.git
+  cd Linux5_DockerStart
+  
+Шаг 5. Создаем Docker-образ для программы
+
+Создал файл Dockerfile:
+
+  touch Dockerfile
+  nano Dockerfile
+  
+Используем официальный образ Python облегченной версии `slim`:
+  FROM python:3.9-slim
+
+Устанавливаю рабочую директорию:
+  WORKDIR /FILES
+
+Копирую файлы проекта из текущей директории (Linux5_DockerStart) в рабочую директорию контейнера (FILES):
+  COPY docker_ini.py .
+
+????Устанавливаем зависимости (если есть, через requirements.txt)
+????RUN pip install -r requirements.txt
+
+Указываю команду по умолчанию:
+  CMD ["python", "docker_ini.py"]
+  
+Шаг 6. Собераю Docker-образ и запускаю контейнер:
+    
+  docker build -t my_docker_ini .
+  docker run --rm my_docker_ini
+
+Шаг 7. Работа с Docker Compose
+
+Создаю docker-compose.yml:
+  
+  touch docker-compose.yml
+  nano docker-compose.yml
+
+Со следующим кодом:
+ 
+  version: '3.8'
+
+  services:
+    app:
+      image: my_docker_ini  # Используем предыдущий образ
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: my_docker_ini_container
+  
+Запускаю через Docker Compose:
+  docker-compose up --build
+
+Однако сталкиваюсь с тем что установленая версия Docker Compose неактуальна. Удаляю старую. Ставлю новую. 
+  Docker Compose version v2.32.1
+
+Редактирую docker-compose.yml. И зарускаю с помощью команды.
+  docker compose up --build
+
+Выход:
+  Привет, это контейнер с Docker!
+  Текущее время: <текущее время>
+  
+Шаг 8. Оформление проекта на GitHub
+
+Переношу файлы в репозиторий:
+  git add .
+  git commit -m "Initial commit"
+  git push origin main
+
+Сразу не получилось пришлось давать доступ в репозиторий и делать ребейз несовпадающих версий.
+
+Шаг 9. 
+
+Создал данное описание для файла README.md с учетом требований разметки Markdown.
+
+Справочная информация
+
+Ссылка на решение: https://github.com/Gibrin/Drone-Programming/
+
+Репозиторий содержит:
+1. docker_ini.py
+2. Dockerfile
+3. docker-compose.yml
+4. README.md
+

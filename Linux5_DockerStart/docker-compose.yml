@@ -1,0 +1,10 @@
+#version: '3.8'
+
+services:
+  app:
+    image: my_docker_ini  # Используем предыдущий образ
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: docker_app_container
+  

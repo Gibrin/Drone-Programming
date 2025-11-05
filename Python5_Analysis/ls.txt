@@ -1,0 +1,13 @@
+total 284M
+drwxr-xr-x 2 root root 4.0K Mar  5 03:43 .
+drwxr-xr-x 4 root root   50 Oct 27 20:37 ..
+-rwxrwxrwx 1 root root    0 Oct 27 20:34 dev_4003_a15461e.log
+-rwxrwxrwx 1 root root  53M Mar  9 20:48 prod_4000_4ad9987.log
+-rwxrwxrwx 1 root root 1.5M Feb  3 16:41 prod_4000_4ad9987.log-20230203.gz
+-rwxrwxrwx 1 root root 158M Mar  1 03:43 prod_4000_4ad9987.log-20230301
+-rwxrwxrwx 1 root root  29M Mar  9 20:48 stage_4002_debug.log
+-rwxrwxrwx 1 root root 2.2M Feb 26 03:41 stage_4002_debug.log-20230226.gz
+-rwxrwxrwx 1 root root  42M Mar  5 03:43 stage_4002_debug.log-20230305
+-rwxrwxrwx 1 root root    0 Mar  9 08:14 stage_4002_error.log
+-rwxrwxrwx 1 root root 1.2K Feb 22 11:09 stage_4002_error.log-20230226.gz
+-rwxrwxrwx 1 root root   78 Feb 28 10:49 stage_4002_error.log-20230305

@@ -1,0 +1,15 @@
+main
+  folder_1
+    folder_1_1
+      folder_1_1_1
+    folder_1_2
+      folder_1_2_1
+      folder_1_2_2
+  folder_2
+    folder_2_1
+  folder_3
+    folder_3_1
+      folder_3_1_1
+    folder_3_2
+      folder_3_2_1
+      folder_3_2_2

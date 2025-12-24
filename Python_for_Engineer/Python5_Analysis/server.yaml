@@ -1,0 +1,86 @@
+groups:
+- devops
+- docker
+- admin
+servers:
+- groups:
+  - devops
+  - admin
+  - root
+  interface: eth0
+  ip: 192.168.1.22
+  name: prod1.cloud.org
+  user: admin
+  users:
+  - root
+- groups:
+  - devops
+  - admin
+  - root
+  interface: eth0
+  ip: 192.168.1.23
+  name: prod2.cloud.org
+  user: admin
+  users:
+  - root
+- groups:
+  - admin
+  - root
+  interface: eth0
+  ip: 192.168.1.24
+  name: prod3.cloud.org
+  user: admin
+  users:
+  - root
+- groups:
+  - devops
+  - root
+  interface: eth0
+  ip: 192.168.1.25
+  name: prod4.cloud.org
+  user: admin
+  users:
+  - root
+- groups:
+  - root
+  interface: eth0
+  ip: 192.168.1.26
+  name: gw.cloud.org
+  user: admin
+  users:
+  - root
+- groups:
+  - admin
+  - root
+  interface: eth0
+  ip: 192.168.1.27
+  name: dev.cloud.org
+  user: admin
+  users:
+  - root
+- ip: ''
+  name: ''
+  user: admin
+users:
+  admin:
+    group: admin
+    groups:
+    - devops
+    - docker
+    - admin
+    home: /home/admin
+    shell: /bin/zsh
+    ssh: key_file
+  root:
+    group: root
+    home: /root
+    shell: /bin/bash
+  user12:
+    group: devs
+    groups:
+    - devops
+    - docker
+    - admin
+    home: /home/user12
+    shell: /bin/sh
+    ssh: password

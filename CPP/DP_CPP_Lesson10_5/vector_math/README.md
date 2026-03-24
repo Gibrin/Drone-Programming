@@ -4,10 +4,10 @@
 
 ## 📋 Требования
 
-- Python 3.6+
+- Python 3.8+
 - C++ компилятор с поддержкой C++17
 - CMake 3.14+
-- pybind11 (устанавливается автоматически или через `pip install pybind11`)
+- Пакет заголовков Python: `python3-dev` (для Ubuntu/Debian)
 
 ## 🚀 Сборка и запуск
 
@@ -25,7 +25,8 @@ git submodule update --init --recursive
 mkdir build && cd build
 
 # 4. Запустите CMake
-cmake ..
+# 💡 Если у вас несколько версий Python, укажите нужную:
+cmake .. -DPython_EXECUTABLE=$(which python3.8)
 
 # 5. Соберите проект
 cmake --build .
